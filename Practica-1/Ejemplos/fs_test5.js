@@ -1,4 +1,4 @@
-
+// Ejemplo 5: Generando errores
 
 var fs = require('fs');
 

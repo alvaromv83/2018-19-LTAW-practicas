@@ -1,3 +1,6 @@
+// Ejemplo 3: Funciones como parámetros
+// Primera compactación de fs_test2.js
+
 var fs = require('fs');
 
 console.log("Este mensaje está AL COMIENZO del código")

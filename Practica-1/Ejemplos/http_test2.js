@@ -1,4 +1,5 @@
-// Primera compactación
+// Ejemplo 8: Servidor "nulo" más compacto
+// Primera compactación de http_test1.js
 
 var http = require('http');
 

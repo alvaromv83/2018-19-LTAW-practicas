@@ -1,3 +1,5 @@
+// Ejemplo 10: Accediendo a la cabecera
+
 var http = require('http');
 
 console.log("Arrancando servidor...")

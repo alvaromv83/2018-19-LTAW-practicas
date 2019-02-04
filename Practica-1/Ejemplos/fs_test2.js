@@ -1,3 +1,6 @@
+// Ejemplo 2: ¡Javascript es un lenguaje orientado a eventos!
+// Lectura de fichero con el código sin compactar
+
 var fs = require('fs');
 
 console.log("Este mensaje está AL COMIENZO del código")

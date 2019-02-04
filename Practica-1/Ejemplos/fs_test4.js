@@ -1,3 +1,6 @@
+// Ejemplo 4: Operador =>
+// Segunda compactación de fs_test2.js -->   ESTA ES LA QUE VAMOS A USAR
+
 var fs = require('fs');
 
 //-- Leer el fichero

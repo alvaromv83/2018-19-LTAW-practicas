@@ -1,3 +1,5 @@
+// Ejemplo 11: Accediendo al recurso solicitado (URL)
+
 var http = require('http');
 
 console.log("Arrancando servidor...")

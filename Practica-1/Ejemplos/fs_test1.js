@@ -1,3 +1,5 @@
+// Ejemplo 1: Lectura de un fichero de texto
+
 var fs = require('fs');
 
 //-- Funcion llamada cuando se ha terminado de leer el fichero

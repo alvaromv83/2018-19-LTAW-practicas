@@ -1,3 +1,5 @@
+// Ejemplo 6: Procesando errores
+
 var fs = require('fs');
 
 //-- Leer el fichero

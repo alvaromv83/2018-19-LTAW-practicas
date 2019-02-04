@@ -1,4 +1,5 @@
-// Segunda compactación -->   ESTA ES LA QUE VAMOS A USAR
+// Ejemplo 9: Mensaje de petición
+// Segunda compactación de http_test1-->   ESTA ES LA QUE VAMOS A USAR
 
 var http = require('http');
 

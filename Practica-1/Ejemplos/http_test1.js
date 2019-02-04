@@ -1,4 +1,5 @@
-// Notación "no expandida" de cómo funciona un servidor
+// Ejemplo 7: Creando un servidor "nulo"
+// Servidor http con el código sin compactar
 
 var http = require('http');
 
