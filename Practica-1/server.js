@@ -10,14 +10,17 @@ http.createServer((req, res) => {
   var url_obj = url.parse(req.url, true)
   var path = 'static' + url_obj.pathname
 
-  console.log("Recurso solicitado (URL): " + path)
+  if (path == 'static/')
+    path = 'static/index.html';
 
-  fs.readFile('static/index.html', function(err, data) {
+  console.log("Recurso solicitado: " + path)
+
+  fs.readFile(path, function(err, data) {
     if (!err) {
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.write(data);
       res.end();
-      console.log("Peticion atendida")
+      console.log("Petición atendida")
     } else {
       res.writeHead(404, {'Content-Type':'text/html'});
       res.write('Error 404 - Recurso inexistente')

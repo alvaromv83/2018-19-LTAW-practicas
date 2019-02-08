@@ -1,13 +1,13 @@
 {
-  "name": "server",
-  "description": "Mi servidor hola mundo",
+  "name": "hello",
+  "description": "Proyecto hola mundo",
   "keywords": [
     "ltaw",
     "test"
   ],
   "version": "0.0.1",
   "author": "Juan Gonzalez-Gómez (Obijuan)",
-  "main": "server.js",
+  "main": "hello.js",
   "devDependencies": {},
   "license": "GPL-3.0",
   "repository": {
@@ -15,7 +15,7 @@
     "url": "https://github.com/myTeachingURJC/2018-19-LTAW.git"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node hello.js",
     "test": "node -v"
   }
 }
