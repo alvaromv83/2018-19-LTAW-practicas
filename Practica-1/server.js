@@ -9,7 +9,6 @@ console.log("Arrancando servidor...\n")
 http.createServer((req, res) => {
   console.log("Recurso solicitado (URL): " + req.url)
   var q = url.parse(req.url, true)
-//  var q = 'static' + q.pathname
   console.log("URL parseada: ")
   console.log("   Host: " + q.host)
   console.log("   Path Name:" + q.pathname)
@@ -30,7 +29,7 @@ http.createServer((req, res) => {
 
   //-- Obtener el nombre del fichero a partir del recurso solicitado
   //-- Se añade un . delante
-  filename = "." + filename
+  filename = "./static" + filename
 
   console.log("Ruta del fichero: " + filename)
   console.log("Tipo de fichero: " + filetype + "\n")
@@ -50,7 +49,6 @@ http.createServer((req, res) => {
 
     //-- Es una imagen
     if (['png', 'jpg'].includes(filetype)) {
-      console.log("IMAGEN!!!!!")
       mime = "image/" + filetype
     }
 
