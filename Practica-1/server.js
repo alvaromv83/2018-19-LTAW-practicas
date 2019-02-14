@@ -52,6 +52,16 @@ http.createServer((req, res) => {
       mime = "image/" + filetype
     }
 
+    //-- Es un audio
+    if (filetype == "mp3") {
+      mime = "audio/mp3"
+    }
+
+    //-- Es un vídeo
+    if (filetype == "mp4") {
+      mime = "video/mp4"
+    }
+
     //-- Generar el mensaje de respuesta
     res.writeHead(200, {'Content-Type': mime});
     res.write(data);
