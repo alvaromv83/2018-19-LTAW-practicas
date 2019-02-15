@@ -6,21 +6,25 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<img src="images/main_photo.jpg" alt="Imagen principal" class="main_photo">
+		<div style="background-color:black">
+			<img src="images/main_photo.jpg" alt="Imagen principal" class="main_photo">
+		</div>
 	  <h1>Tienda de música</h1>
-		<p>Bienvenid@ a la tienda de música, bla bla bla ...
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod
-			tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi
-			consequat. Quis aute iure reprehenderit in voluptate velit esse cillum dolore
-			eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident,
-			sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-	  <p><a href="cuerda.html">Instrumentos de cuerda</a></p>
-	  <p><a href="viento.html">Instrumentos de viento</a></p>
-		<p><a href="percusion.html">Instrumentos de percusión</a></p>
-		<center><video width="320" height="240" controls>
-	   <source src="video/SampleVideo.mp4" type="video/mp4">
-	   Your browser does not support the video tag.
-	 </video></center>
+		<p>Bienvenid@! </p>
+		<div class="split left">
+			<div class="centered">
+			  <p><a href="cuerda.html">Instrumentos de cuerda</a></p>
+			  <p><a href="viento.html">Instrumentos de viento</a></p>
+				<p><a href="percusion.html">Instrumentos de percusión</a></p>
+			</div>
+		</div>
+		<div class="split right">
+			<div class="centered">
+				<video width="500" class="video" controls>
+					<source src="video/video_intro.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video>
+			</div>
+		</div>
 	</body>
 </html>
