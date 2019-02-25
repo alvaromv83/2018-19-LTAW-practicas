@@ -3,7 +3,7 @@ from django.template import Template, Context
 from django.shortcuts import render
 
 def index(request):
-    return render(request, 'main.html', {'user':'Alvaro'})
+    return render(request, 'index.html', {'user':'Alvaro'})
 
 def mi_funcion(request): # El parametro que le paso es el request cliente
 	html = "Hola! Mi primera UrL!!"
