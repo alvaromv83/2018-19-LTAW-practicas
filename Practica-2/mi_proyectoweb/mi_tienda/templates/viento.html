@@ -1,15 +1,17 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="UTF-8">
 	<title>Instrumentos de viento</title>
-	<link rel="stylesheet" href="static/css/style.css">
+	<link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 
 <body>
 	<div style="background-color:black">
-		<img src="static/images/main_photo.jpg" alt="Imagen principal" class="main_photo">
+		<img src="{% static 'images/main_photo.jpg'%}" alt="Imagen principal" class="main_photo">
 	</div>  <h1>Instrumentos de viento</h1>
 	<p>Sección dedicada a instrumentos de viento, bla bla bla ...
 		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod

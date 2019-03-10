@@ -1,13 +1,15 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
-<html>
+<html lang="es" dir="ltr">
 	<head>
 	  <meta charset="UTF-8">
 		<title>Tienda de música</title>
-		<link rel="stylesheet" href="static/css/style.css">
+		<link rel="stylesheet" href="{% static 'css/style.css'%}">
 	</head>
 	<body>
 		<div style="background-color:black">
-			<img src="static/images/main_photo.jpg" alt="Imagen principal" class="main_photo">
+			<img src="{% static 'images/main_photo.jpg'%}" alt="Imagen principal" class="main_photo">
 		</div>
 	  <h1>Tienda de música</h1>
 		<p>Bienvenid@! </p>
@@ -21,7 +23,7 @@
 		<div class="split right">
 			<div class="centered">
 				<video width="500" class="video" controls>
-					<source src="static/video/video_intro.mp4" type="video/mp4">
+					<source src="{% static 'video/video_intro.mp4'%}" type="video/mp4">
 					Your browser does not support the video tag.
 				</video>
 			</div>
