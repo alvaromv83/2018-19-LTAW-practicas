@@ -1,20 +1,22 @@
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="UTF-8">
 	<title>Guitarras</title>
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 
 <body>
 	<div style="background-color:black">
-		<img src="../images/main_photo.jpg" alt="Imagen principal" class="main_photo">
+		<img src="{% static 'images/main_photo.jpg'%}" alt="Imagen principal" class="main_photo">
 	</div>  <h1>Guitarras</h1>
 	<p align="center">Gibson ES335</p>
-		<img src="../images/Gibson_ES335.jpg" alt="Gibson ES335" class="main_photo">
+		<img src="{% static 'images/Gibson_ES335.jpg'%}" alt="Gibson ES335" class="main_photo">
 		<center><audio controls>
-			<source src="../audio/guitar.mp3" type="audio/mp3">
+			<source src="{% static 'audio/guitar.mp3'%}" type="audio/mp3">
 	   	Your browser does not support the audio tag.
 	 	</audio></center>
 		<p align="center">2.290 €</p>

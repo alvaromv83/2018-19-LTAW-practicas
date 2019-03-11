@@ -13,6 +13,15 @@ def home_view (request):
 def cuerda_view (request):
     return render(request, "cuerda.html", {})
 
+def pianos_view (request):
+    return render(request, "cuerda/pianos.html", {})
+
+def guitarras_view (request):
+    return render(request, "cuerda/guitarras.html", {})
+
+def bajos_view (request):
+    return render(request, "cuerda/bajos.html", {})
+
 def percusion_view (request):
     return render(request, "percusion.html", {})
 
