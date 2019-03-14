@@ -10,23 +10,14 @@ from mi_tienda.models import Product
 def home_view (request):
     return render(request, "index.html", {})
 
-def cuerda_view (request):
-    return render(request, "cuerda.html", {})
-
 def pianos_view (request):
-    return render(request, "cuerda/pianos.html", {})
+    return render(request, "pianos.html", {})
 
 def guitarras_view (request):
-    return render(request, "cuerda/guitarras.html", {})
+    return render(request, "guitarras.html", {})
 
 def bajos_view (request):
-    return render(request, "cuerda/bajos.html", {})
-
-def percusion_view (request):
-    return render(request, "percusion.html", {})
-
-def viento_view (request):
-    return render(request, "viento.html", {})
+    return render(request, "bajos.html", {})
 
 def list(request):
     objects = Product.objects.all() # Creamos una lista que lee de la BD todos

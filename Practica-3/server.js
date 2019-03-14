@@ -13,15 +13,34 @@ http.createServer((req, res) => {
   console.log("   Host: " + q.host)
   console.log("   Path Name:" + q.pathname)
 
+  //-- Leer las cookies
+  var cookie = req.headers.cookie;    // Leemos la cookie de la cabecera
+  console.log("Cookie: " + cookie)
+
   //-- Obtener el fichero. Si es "static/" se toma index.html
   //-- Poner el "." delante para que sean un fichero del directorio actual
 
   var filename = ""
 
-  if (q.pathname == "/")
-    filename += "/index.html"
-  else {
-    filename = q.pathname
+  filename = q.pathname
+
+  switch (q.pathname) {
+
+    //-- Página principal
+    case "/":
+      filename += "/index.html"
+      //-- No hay ninguna cookie
+      if (!cookie) {
+        console.log("------------- NUEVO USUARIO")
+      }
+      break;
+
+    //-- Página de acceso
+    case "/login":
+      console.log("------------- LOGIN")
+      // Establecer la cookie
+      res.setHeader('Set-Cookie', 'user=Usuario') // Establezco la cookie user para el usuario obijuan
+      break
   }
 
   //-- Obtener el tipo de fichero segun la extension
