@@ -2,6 +2,8 @@ var http = require('http');
 var url = require('url');
 var fs = require('fs');
 
+const PORT = 8000
+
 console.log("Arrancando servidor...\n")
 
 // Configurar y lanzar el servidor
@@ -61,4 +63,4 @@ http.createServer((req, res) => {
     res.end();
   });
 
-}).listen(8000);
+}).listen(PORT);
