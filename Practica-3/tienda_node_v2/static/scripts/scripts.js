@@ -1,9 +1,4 @@
-function addcart()
+function addtocart()
 {
-
-  var boton = document.getElementById('boton')
-
-  boton.onclick= () => {
-    console.log("------ CLICK ------")
-  }
+  console.log("--------- Se ejecuta la función addtocart()")
 }
