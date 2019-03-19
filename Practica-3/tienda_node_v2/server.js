@@ -23,14 +23,26 @@ http.createServer((req, res) => {
   // Obtener la ruta del fichero
   var filepath = q.pathname
   switch (q.pathname) {
+
     // Petición de página principal
     case "/":
       filepath = "/index.html"
       break;
+
     // Petición de login
     case "/login.html":
-      // Establecer la cookie
       res.setHeader('Set-Cookie', 'user=Usuario')
+      break;
+
+    // Añadir al carrito
+    case "/buy_piano.html":
+      res.setHeader('Set-Cookie', 'item1=Piano')
+      break;
+    case "/buy_guitar.html":
+      res.setHeader('Set-Cookie', 'item2=Guitar')
+      break;
+    case "/buy_bass.html":
+      res.setHeader('Set-Cookie', 'item3=Bass')
       break;
   }
   filetype = filepath.split(".")[1]
