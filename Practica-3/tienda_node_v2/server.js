@@ -25,6 +25,9 @@ http.createServer((req, res) => {
 
   // Petición de compra
   if (filepath.includes("cart")) {
+
+    var content = ""
+
     if (!cookie) {
       content = "Error. Debes logearte primero.";
       res.statusCode = 404;
@@ -46,12 +49,92 @@ http.createServer((req, res) => {
         // Acceder al carrito
         case "/cart":
           shoppingcart = cookie.split("Usuario;")[1]
-          content = "Carrito de la compra:\n" + shoppingcart
+          if (!shoppingcart) {
+            content = "Error. No hay ningun producto en el carrito.";
+            res.statusCode = 404;
+          } else {
+            //content = "Carrito de la compra:\n" + shoppingcart
+            content =
+            `
+            <!DOCTYPE html>
+            <html lang="es">
+              <head>
+                <meta charset="utf-8">
+                <title>Carrito de la compra</title>
+              </head>
+              <body>
+                <p>Carrito de la compra:</p>
+            `
+            content += shoppingcart;
+            content +=
+            `
+                <br>
+                <br>
+                <p>Por favor, introduce tus datos:</p>
+                <form action="/cart_form" method="post">
+                  Nombre:
+                  <input type="text" name="Nombre"/> <br />
+                  Apellidos:
+                  <input type="text" name="Apellidos"/> <br />
+                  Correo electrónico:
+                  <input type="text" name="Correo electrónico"/> <br />
+                  Método de pago:
+                  <input type="text" name="Método pago"/> <br />
+                  <input type="submit" value="Enviar"/>
+                </form>
+              </body>
+            </html>
+            `
+          }
         break;
+        // Formulario
+        case "/cart_form":
+          if (req.method === 'POST') {
+            // Handle post info...
+
+            var content = `
+              <!DOCTYPE html>
+              <html lang="es">
+                <head>
+                  <meta charset="utf-8">
+                  <title>FORM 1</title>
+                </head>
+                <body>
+                  <p>Recibido: `
+
+              req.on('data', chunk => {
+                  //-- Leer los datos (convertir el buffer a cadena)
+                  data = chunk.toString();
+
+                  //-- Añadir los datos a la respuesta
+                  content += data;
+
+                  //-- Fin del mensaje. Enlace al formulario
+                  content += `
+                      </p>
+                      <p>Compra realizada correctamente.<p/>
+                      <a href="/">Volver a la página principal</a>
+                    </body>
+                  </html>
+                  `
+                  //-- Mostrar los datos en la consola del servidor
+                  console.log("Datos recibidos: " + data)
+                  res.statusCode = 200;
+               });
+
+               req.on('end', ()=> { // Al recibir este evento, ya ha finalizado la petición
+                 //-- Generar el mensaje de respuesta
+                 res.setHeader('Content-Type', 'text/html')
+                 res.write(content);
+                 res.end();
+               })
+            return
+          }
+        break
       }
     }
     // Generar el mensaje de respuesta
-    res.setHeader('Content-Type', 'text/plain')
+    res.setHeader('Content-Type', 'text/html')
     res.write(content);
     res.end();
 
