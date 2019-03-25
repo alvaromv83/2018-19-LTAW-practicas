@@ -33,6 +33,7 @@ http.createServer((req, res) => {
       res.statusCode = 404;
     } else {
       switch (filepath) {
+
         // Añadir al carrito
         case "/addtocart_piano":
           res.setHeader('Set-Cookie', 'item1=Piano_Yamaha_b1_PE')
@@ -46,6 +47,7 @@ http.createServer((req, res) => {
           res.setHeader('Set-Cookie', 'item3=Bajo_Fender_Jazz_Bass')
           content = "Añadido bajo Fender Jazz Bazz al carrito"
           break;
+
         // Acceder al carrito
         case "/cart":
           shoppingcart = cookie.split("Usuario;")[1]
@@ -53,7 +55,6 @@ http.createServer((req, res) => {
             content = "Error. No hay ningun producto en el carrito.";
             res.statusCode = 404;
           } else {
-            //content = "Carrito de la compra:\n" + shoppingcart
             content =
             `
             <!DOCTYPE html>
@@ -77,9 +78,10 @@ http.createServer((req, res) => {
                   Apellidos:
                   <input type="text" name="Apellidos"/> <br />
                   Correo electrónico:
-                  <input type="text" name="Correo electrónico"/> <br />
+                  <input type="text" name="Email"/> <br />
                   Método de pago:
-                  <input type="text" name="Método pago"/> <br />
+                  <input type="text" name="Metodo_pago"/> <br />
+                  <br>
                   <input type="submit" value="Enviar"/>
                 </form>
               </body>
@@ -87,7 +89,8 @@ http.createServer((req, res) => {
             `
           }
         break;
-        // Formulario
+
+        // Procesar formulario
         case "/cart_form":
           if (req.method === 'POST') {
             // Handle post info...
@@ -100,34 +103,34 @@ http.createServer((req, res) => {
                   <title>FORM 1</title>
                 </head>
                 <body>
-                  <p>Recibido: `
+                  <p>Datos recibidos: `
 
-              req.on('data', chunk => {
-                  //-- Leer los datos (convertir el buffer a cadena)
-                  data = chunk.toString();
+            req.on('data', chunk => {
+              //-- Leer los datos (convertir el buffer a cadena)
+              data = chunk.toString();
 
-                  //-- Añadir los datos a la respuesta
-                  content += data;
+              //-- Añadir los datos a la respuesta
+              content += data;
 
-                  //-- Fin del mensaje. Enlace al formulario
-                  content += `
-                      </p>
-                      <p>Compra realizada correctamente.<p/>
-                      <a href="/">Volver a la página principal</a>
-                    </body>
-                  </html>
-                  `
-                  //-- Mostrar los datos en la consola del servidor
-                  console.log("Datos recibidos: " + data)
-                  res.statusCode = 200;
-               });
+              //-- Fin del mensaje. Enlace al formulario
+              content += `
+                    </p>
+                    <p>Compra realizada correctamente.<p/>
+                    <a href="/">Volver a la página principal</a>
+                  </body>
+                </html>
+                `
+              //-- Mostrar los datos en la consola del servidor
+              console.log("Datos recibidos: " + data)
+              res.statusCode = 200;
+            });
 
-               req.on('end', ()=> { // Al recibir este evento, ya ha finalizado la petición
-                 //-- Generar el mensaje de respuesta
-                 res.setHeader('Content-Type', 'text/html')
-                 res.write(content);
-                 res.end();
-               })
+            req.on('end', ()=> { // Al recibir este evento, ya ha finalizado la petición
+              //-- Generar el mensaje de respuesta
+              res.setHeader('Content-Type', 'text/html')
+              res.write(content);
+              res.end();
+            })
             return
           }
         break
