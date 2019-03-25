@@ -4,10 +4,11 @@
 	<head>
 	  <meta charset="UTF-8">
 		<title>Tienda de música</title>
+    <script src="scripts/client-2.js"></script>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
 	</head>
 
-	<body>
+	<body onload=main()>
 
 		<div style="background-color:black">
 			<img src="images/main_photo.jpg" alt="Imagen principal" class="main_photo">
@@ -18,7 +19,10 @@
 		<div class="split left">
 			<p><a href="login.html">Login</a></p>
 			<p><a href="cart">Carrito de la compra</a></p>
-  		<p><input type="text" placeholder="Buscar"></p>
+			<form action="/cart_search_form" method="post">
+				<input type="text" name="Buscar" placeholder="Buscar">
+				<button type="submit">Buscar</button>
+			</form>
 
 			<div class="centered">
 			  <p><a href="pianos.html">Pianos</a></p>

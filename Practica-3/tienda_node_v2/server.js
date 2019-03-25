@@ -133,7 +133,60 @@ http.createServer((req, res) => {
             })
             return
           }
-        break
+          break;
+
+        // Procesar formulario
+        case "/cart_search_form":
+          if (req.method === 'POST') {
+            // Handle post info...
+
+            var content = `
+              <!DOCTYPE html>
+              <html lang="es">
+                <head>
+                  <meta charset="utf-8">
+                  <title>FORM 1</title>
+                </head>
+                <body>
+                  <p>Producto a buscar: `
+
+            req.on('data', chunk => {
+              //-- Leer los datos (convertir el buffer a cadena)
+              data = chunk.toString();
+
+              //-- Añadir los datos a la respuesta
+              content += data;
+
+              //-- Fin del mensaje. Enlace al formulario
+              content += `
+                    </p>
+                    <a href="/">Volver a la página principal</a>
+                  </body>
+                </html>
+                `
+              //-- Mostrar los datos en la consola del servidor
+              console.log("Datos recibidos: " + data)
+              res.statusCode = 200;
+            });
+
+            req.on('end', ()=> { // Al recibir este evento, ya ha finalizado la petición
+              //-- Generar el mensaje de respuesta
+              res.setHeader('Content-Type', 'text/html')
+              res.write(content);
+              res.end();
+            })
+            return
+          }
+          break;
+
+        //-- Se intenta acceder a un recurso que no existe
+        default:
+          content = "Error";
+          res.statusCode = 404;
+          //-- Generar el mensaje de respuesta
+          res.setHeader('Content-Type', 'text/html')
+          res.write(content);
+          res.end();
       }
     }
     // Generar el mensaje de respuesta
