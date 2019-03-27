@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WebSocket Chat</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat-client.js"></script>
+  </head>
+  <body onload="main();">
+    <h2>Chat con WebSocket</h2>
+    <input id="msg" autocomplete="off" />
+    <button type="button" id="send">Enviar</button>
+    <p id="display"></p>
+  </body>
+</html>
