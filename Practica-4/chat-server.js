@@ -16,6 +16,12 @@ app.get('/chat-client.js', function(req, res){
   console.log("Fichero js solicitado")
 });
 
+//--Servir pagina de ayuda
+app.get('/help', function(req, res){
+  res.sendFile(__dirname + '/help.html');
+  console.log("Página de ayuda: /help")
+});
+
 //-- Lanzar el servidor
 http.listen(3000, function(){
   console.log('listening on *:3000');
