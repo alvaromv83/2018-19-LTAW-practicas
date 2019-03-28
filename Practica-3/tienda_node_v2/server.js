@@ -52,7 +52,7 @@ http.createServer((req, res) => {
         case "/cart":
           shoppingcart = cookie.split("Usuario;")[1]
           if (!shoppingcart) {
-            content = "Error. No hay ningun producto en el carrito.";
+            content = "No hay ningun producto en el carrito.";
             res.statusCode = 404;
           } else {
             content =
@@ -181,12 +181,8 @@ http.createServer((req, res) => {
 
         //-- Se intenta acceder a un recurso que no existe
         default:
-          content = "Error";
+          content = "404 Not Found";
           res.statusCode = 404;
-          //-- Generar el mensaje de respuesta
-          res.setHeader('Content-Type', 'text/html')
-          res.write(content);
-          res.end();
       }
     }
     // Generar el mensaje de respuesta
@@ -218,24 +214,25 @@ http.createServer((req, res) => {
       if (err) {
         res.writeHead(404, {'Content-Type': 'text/html'});
         return res.end("404 Not Found");
-      }
+      } else {
+        // Asignar tipo MIME
+        var mime = "text/html"  // Por defecto HTML
+        if (filetype == "css") {
+          mime = "text/css"
+        } else if (['png', 'jpg'].includes(filetype)) {
+          mime = "image/" + filetype
+        } else if (filetype == "mp3") {
+          mime = "audio/mp3"
+        } else if (filetype == "mp4") {
+          mime = "video/mp4"
+        }
 
-      // Asignar tipo MIME
-      var mime = "text/html"  // Por defecto HTML
-      if (filetype == "css") {
-        mime = "text/css"
-      } else if (['png', 'jpg'].includes(filetype)) {
-        mime = "image/" + filetype
-      } else if (filetype == "mp3") {
-        mime = "audio/mp3"
-      } else if (filetype == "mp4") {
-        mime = "video/mp4"
-      }
+        // Generar el mensaje de respuesta
+        res.writeHead(200, {'Content-Type': mime});
+        res.write(data);
+        res.end();
 
-      // Generar el mensaje de respuesta
-      res.writeHead(200, {'Content-Type': mime});
-      res.write(data);
-      res.end();
+      }
     });
   }
 
