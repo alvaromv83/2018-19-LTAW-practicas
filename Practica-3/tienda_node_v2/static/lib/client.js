@@ -10,7 +10,8 @@ function main()
   var resultado = document.getElementById('resultado');
 
   //-- Cuando el usuario aprieta el botón de ver los productos
-  ver.onclick = ()=>{
+  ver.onkeypress = ()=>{
+
 
     //-- Crear objeto para hacer peticiones AJAX
     m = new XMLHttpRequest();
