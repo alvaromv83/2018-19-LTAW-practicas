@@ -22,13 +22,14 @@ function main() {
     socket.emit('new_message', msg.value);
 
     //-- Lo notificamos en la consola del navegador
-    console.log("--> Mensaje emitido")
+    console.log("--> Mensaje emitido: " + msg.value)
   }
 
   //-- Cuando se reciba un mensaje del servidor se muestra
   //-- en el párrafo
   socket.on('new_message', msg => {
     display.innerHTML = msg;
+    console.log("--> Mensaje recibido: " + msg)
   });
 
 }
