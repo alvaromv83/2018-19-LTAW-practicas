@@ -189,21 +189,9 @@ http.createServer((req, res) => {
     res.setHeader('Content-Type', 'text/html')
     res.write(content);
     res.end();
-
-  // Petición AJAX
-  } else if (filepath == "/myquery") {
-      //-- Contenido en formato JSON
-      //-- Es lo que se va a devolver en la petición. Es un array
-      content = `
-      {
-        "productos": ["Yamaha_b1_PE", "Gibson_ES335", "Fender_Jazz_Bass"]
-      }
-      `
-      // Generar el mensaje de respuesta
-      res.setHeader('Content-Type', 'application/json')
-      res.write(content);
-      res.end();
-
+  // Petición de fichero
+  } else if (filepath="/myquery") {
+    console.log("-------------------------------")
   // Petición de fichero
   } else {
     switch (filepath) {

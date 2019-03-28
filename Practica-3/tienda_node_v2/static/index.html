@@ -4,10 +4,11 @@
 	<head>
 	  <meta charset="UTF-8">
 		<title>Tienda de música</title>
+    <script src="/lib/client.js"></script>
 		<link rel="stylesheet" href="/css/style.css">
 	</head>
 
-	<body>
+	<body onload="main()">
 		<div style="background-color:black">
 			<img src="images/main_photo.jpg" alt="Imagen principal" class="main_photo">
 		</div>
@@ -21,6 +22,8 @@
 				<input type="text" name="Buscar" placeholder="Buscar">
 				<button type="submit">Buscar</button>
 			</form>
+	    <input type="button" id="ver" value="Ver productos"/>
+	    <p id="resultado"></p>
 
 			<div class="centered">
 			  <p><a href="pianos.html">Pianos</a></p>
