@@ -16,7 +16,7 @@ function main()
     m = new XMLHttpRequest();
 
     //-- Configurar la petición
-    m.open("GET","http://localhost:8080/myquery", true); // Función de retrollamada
+    m.open("GET","http://localhost:8000/myquery", true); // Función de retrollamada
                                                          // que ejecuta la petición al servidor
 
     //-- Cuando la haya alguna noticia sobre la peticion

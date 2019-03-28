@@ -225,6 +225,8 @@ http.createServer((req, res) => {
           mime = "audio/mp3"
         } else if (filetype == "mp4") {
           mime = "video/mp4"
+        } else if (filetype == "js") {
+          mime = "application/javascript"
         }
 
         // Generar el mensaje de respuesta
