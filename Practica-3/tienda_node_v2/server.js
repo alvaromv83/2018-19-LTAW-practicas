@@ -4,7 +4,7 @@ var fs = require('fs');
 
 const PORT = 8000
 
-console.log("Arrancando servidor...\n")
+console.log("Arrancando servidor en puerto " + PORT + "...\n")
 
 // Configurar y lanzar el servidor
 http.createServer((req, res) => {
@@ -27,34 +27,66 @@ http.createServer((req, res) => {
   if (filepath.includes("cart")) {
 
     var content = ""
+    var emptycart = true;
 
     if (!cookie) {
       content = "Error. Debes logearte primero.";
       res.statusCode = 404;
     } else {
+      if (cookie.includes("cart")){
+        emptycart = false;
+      }
       switch (filepath) {
 
         // Añadir al carrito
         case "/addtocart_piano":
-          res.setHeader('Set-Cookie', 'item1=Piano_Yamaha_b1_PE')
+          if (!emptycart) {
+            cookie = cookie.split("Usuario;")[1]
+            cookie += "&"
+          } else {
+            cookie = "cart="
+          }
+          cookie += 'Piano_Yamaha_b1_PE'
+          res.setHeader('Set-Cookie', cookie)
           content = "Añadido piano Yamaha b1 PE al carrito"
+          res.statusCode = 200;
           break;
         case "/addtocart_guitar":
-          res.setHeader('Set-Cookie', 'item2=Guitarra_Gibson_ES335')
+          if (!emptycart) {
+            cookie = cookie.split("Usuario;")[1]
+            cookie += "&"
+          } else {
+            cookie = "cart="
+          }
+          cookie += 'Guitarra_Gibson_ES335'
+          res.setHeader('Set-Cookie', cookie)
           content = "Añadida guitarra Gibson ES335 al carrito"
+          res.statusCode = 200;
           break;
         case "/addtocart_bass":
-          res.setHeader('Set-Cookie', 'item3=Bajo_Fender_Jazz_Bass')
+          if (!emptycart) {
+            cookie = cookie.split("Usuario;")[1]
+            cookie += "&"
+          } else {
+            cookie = "cart="
+          }
+          cookie += 'Bajo_Fender_Jazz_Bass'
+          res.setHeader('Set-Cookie', cookie)
           content = "Añadido bajo Fender Jazz Bazz al carrito"
+          res.statusCode = 200;
           break;
 
         // Acceder al carrito
         case "/cart":
-          shoppingcart = cookie.split("Usuario;")[1]
-          if (!shoppingcart) {
-            content = "No hay ningun producto en el carrito.";
+          if (emptycart) {
+            content = "Error. No hay ningun producto en el carrito.";
             res.statusCode = 404;
           } else {
+            shoppingcart = cookie.split("cart=")[1]
+            while (shoppingcart.includes("&") || shoppingcart.includes("_")) {
+              shoppingcart = shoppingcart.replace("&",", ");
+              shoppingcart = shoppingcart.replace("_"," ");
+            }
             content =
             `
             <!DOCTYPE html>
@@ -87,6 +119,7 @@ http.createServer((req, res) => {
               </body>
             </html>
             `
+            res.statusCode = 200;
           }
         break;
 
@@ -213,7 +246,8 @@ http.createServer((req, res) => {
         break;
       // Login
       case "/login.html":
-        res.setHeader('Set-Cookie', 'user=Usuario')
+        cookie = 'user=Usuario'
+        res.setHeader('Set-Cookie', cookie)
         break;
     }
 

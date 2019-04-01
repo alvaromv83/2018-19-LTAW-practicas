@@ -123,6 +123,9 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(){
     console.log('--> Usuario Desconectado');
 
+    // Enviar mensaje de bienvenida al nuevo usuario
+    io.emit('new_message', 'Usuario desconectado');
+
     n_users -= 1;
     console.log("Número de usuarios en el chat: " + n_users);
   });

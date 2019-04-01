@@ -1,5 +1,5 @@
 function main() {
-  console.log("Ejecutado código JavaScript...")
+  console.log("Ejecutado chat-client.js")
 
   //-- Crear el websocket
   var socket = io();
