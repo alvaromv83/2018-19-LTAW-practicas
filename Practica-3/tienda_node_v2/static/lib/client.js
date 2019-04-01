@@ -12,7 +12,6 @@ function main()
   //-- Cuando el usuario aprieta el botón de ver los productos
   ver.onkeypress = ()=>{
 
-
     //-- Crear objeto para hacer peticiones AJAX
     m = new XMLHttpRequest();
 

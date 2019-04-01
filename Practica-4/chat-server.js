@@ -136,6 +136,29 @@ io.on('connection', function(socket){
     //-- Notificarlo en la consola del servidor
     console.log("--> Mensaje recibido: " + msg)
 
+    if (msg.includes("/")) {
+      switch(msg) {
+        case "/help":
+          console.log("----------- COMANDO HELP")
+        break;
+      }
+      switch(msg) {
+        case "/list":
+          console.log("----------- COMANDO LIST")
+        break;
+      }
+      switch(msg) {
+        case "/hello":
+          console.log("----------- COMANDO HELLO")
+        break;
+      }
+      switch(msg) {
+        case "/date":
+          console.log("----------- COMANDO DATE")
+        break;
+      }
+    }
+
     //-- Emitir un mensaje a todos los clientes conectados
     io.emit('new_message', msg);  // Se podría poner un nombre de evento diferente, porque esto es msg de serv a cliente
   })
