@@ -20,90 +20,10 @@ app.get('/chat-client.js', function(req, res){
   console.log("Recurso solicitado: /chat-client.js")
 });
 
-//--Comando "help"
-app.get('/help', function(req, res){
-  res.sendFile(__dirname + '/help.html');
-  console.log("Recurso solicitado: /help")
-});
-
-//--Comando "list"
-app.get('/list', function(req, res){
-  content =
-  `
-  <!DOCTYPE html>
-  <html lang="es">
-    <head>
-      <meta charset="utf-8">
-      <title>Número de usuarios</title>
-    </head>
-    <body>
-      <p>Número de usuarios conectados al chat: </p>
-  `
-  content += n_users;
-  content +=
-  `
-      <p><a href="/">Volver al chat</a></p>
-    </body>
-  <html>
-  `
-
-  res.end(content);
-  console.log("Recurso solicitado: /list")
-});
-
-//--Comando "hello"
-app.get('/hello', function(req, res){
-  content =
-  `
-  <!DOCTYPE html>
-  <html lang="es">
-    <head>
-      <meta charset="utf-8">
-      <title>Saludo</title>
-    </head>
-    <body>
-      <p>Hola</p>
-      <p><a href="/">Volver al chat</a></p>
-    </body>
-  <html>
-  `
-  res.end(content)
-  console.log("Recurso solicitado: /hello")
-});
-
-//--Comando "date"
-app.get('/date', function(req, res){
-  var date = new Date();
-  date = String(date)
-
-  content =
-  `
-  <!DOCTYPE html>
-  <html lang="es">
-    <head>
-      <meta charset="utf-8">
-      <title>Fecha y hora</title>
-    </head>
-    <body>
-      <p>Fecha y hora: </p>
-  `
-  content += date;
-  content +=
-  `
-      <p><a href="/">Volver al chat</a></p>
-    </body>
-  <html>
-  `
-  res.end(content)
-  console.log("Recurso solicitado: /date")
-});
-// -------------------------------------------------------------------------- //
-
 //-- Lanzar el servidor
 http.listen(PORT, function(){
-  console.log('listening on *: ' + PORT);
+  console.log("Arrancando servidor en puerto " + PORT + "...\n")
 });
-
 
 //-- Evento: Nueva conexion recibida
 //-- Un nuevo cliente se ha conectado!
@@ -111,8 +31,11 @@ io.on('connection', function(socket){
   console.log('--> Usuario conectado');
 
   // Enviar mensaje de bienvenida al nuevo usuario
-  io.emit('new_message', 'Nuevo usuario conectado');
-  console.log('--> Enviado anuncio del nuevo usuario');
+  socket.emit('new_message', 'Bienvenido'); //socket.emit es unicast
+
+  // Anuncio del nuevo usuario
+//  io.emit('new_message', 'Nuevo usuario conectado'); //io.emit es broadcast
+//  console.log('--> Enviado anuncio del nuevo usuario');
 
   n_users += 1;
   console.log("Número de usuarios en el chat: " + n_users);
@@ -131,36 +54,43 @@ io.on('connection', function(socket){
   });
 
   //-- Detectar si se ha recibido un mensaje del cliente
-  socket.on('new_message', msg => {
+  socket.on('new_message', client_msg => {
 
     //-- Notificarlo en la consola del servidor
-    console.log("--> Mensaje recibido: " + msg)
+    console.log("--> Mensaje recibido: " + client_msg)
 
-    if (msg.includes("/")) {
-      switch(msg) {
+    var server_msg = ""
+
+    if (client_msg.startsWith("/")) {
+      switch(client_msg) {
         case "/help":
-          console.log("----------- COMANDO HELP")
+          server_msg = "Lista de comandos: /help, /list, /hello, /date"
+          socket.emit('new_message', server_msg)
+          console.log("Respuesta a /help")
         break;
-      }
-      switch(msg) {
         case "/list":
-          console.log("----------- COMANDO LIST")
+          server_msg = "Número de usuarios conectados: " + n_users
+          socket.emit('new_message', server_msg)
+          console.log("Respuesta a /list")
         break;
-      }
-      switch(msg) {
         case "/hello":
-          console.log("----------- COMANDO HELLO")
+          socket.emit('new_message', "Hola")
+          console.log("Respuesta a /hello")
         break;
-      }
-      switch(msg) {
         case "/date":
-          console.log("----------- COMANDO DATE")
+          var date = new Date()
+          server_msg = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
+          socket.emit('new_message', server_msg)
+          console.log("Respuesta a /date")
         break;
+        default:
+          socket.emit('new_message', 'Comando no encontrado')
+          console.log("Comando no encontrado")
       }
+    } else {
+      //-- Emitir un mensaje a todos los clientes conectados
+      io.emit('new_message', client_msg);   // Broadcast
     }
-
-    //-- Emitir un mensaje a todos los clientes conectados
-    io.emit('new_message', msg);  // Se podría poner un nombre de evento diferente, porque esto es msg de serv a cliente
   })
 
 });

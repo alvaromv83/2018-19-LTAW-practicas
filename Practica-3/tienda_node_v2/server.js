@@ -84,7 +84,7 @@ http.createServer((req, res) => {
           } else {
             shoppingcart = cookie.split("cart=")[1]
             while (shoppingcart.includes("&") || shoppingcart.includes("_")) {
-              shoppingcart = shoppingcart.replace("&",", ");
+              shoppingcart = shoppingcart.replace("&","<br>");
               shoppingcart = shoppingcart.replace("_"," ");
             }
             content =
@@ -96,7 +96,7 @@ http.createServer((req, res) => {
                 <title>Carrito de la compra</title>
               </head>
               <body>
-                <p>Carrito de la compra:</p>
+                <p><h3>Carrito de la compra:</h3></p>
             `
             content += shoppingcart;
             content +=

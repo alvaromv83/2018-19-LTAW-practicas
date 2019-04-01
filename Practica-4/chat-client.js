@@ -15,11 +15,21 @@ function main() {
   //-- Caja con el mensaje a enviar
   var msg = document.getElementById("msg")
 
+  msg.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("send").click()
+    }
+  });
+
   //-- Cuando se aprieta el botón de enviar...
   send.onclick = () => {
 
     //-- Enviar el mensaje, con el evento "new_message"
     socket.emit('new_message', msg.value);
+
+    //-- Limpiar la Caja
+    document.getElementById('msg').value = ""
 
     //-- Lo notificamos en la consola del navegador
     console.log("--> Mensaje emitido: " + msg.value)
@@ -28,7 +38,7 @@ function main() {
   //-- Cuando se reciba un mensaje del servidor se muestra
   //-- en el párrafo
   socket.on('new_message', msg => {
-    display.innerHTML = msg;
+    display.innerHTML = display.innerHTML + "<br>" + "<nobr>>>> </nobr>" + msg;
     console.log("--> Mensaje recibido: " + msg)
   });
 
