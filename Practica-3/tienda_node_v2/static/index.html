@@ -4,11 +4,11 @@
 	<head>
 	  <meta charset="UTF-8">
 		<title>Tienda de música</title>
-    <script src="/lib/client.js"></script>
+  	<script type="text/javascript" src="/lib/client.js"></script>
 		<link rel="stylesheet" href="/css/style.css">
 	</head>
 
-	<body onload="main()">
+	<body>
 		<div style="background-color:black">
 			<img src="images/main_photo.jpg" alt="Imagen principal" class="main_photo">
 		</div>
@@ -19,7 +19,7 @@
 			<p><a href="login.html">Login</a></p>
 			<p><a href="cart">Carrito de la compra</a></p>
 			<form action="/cart_search_form" method="post">
-		    <input type="text" id="ver"/>
+		    <input type="search" id="search_bar" onkeypress="search_analyze()"/>
 				<button type="submit">Buscar</button>
 			</form>
 	    <p id="resultado"></p>

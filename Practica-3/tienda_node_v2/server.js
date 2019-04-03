@@ -136,23 +136,32 @@ http.createServer((req, res) => {
                   <title>FORM 1</title>
                 </head>
                 <body>
-                  <p>Datos recibidos: `
+                  <p>Datos recibidos:</p>`
 
             req.on('data', chunk => {
               //-- Leer los datos (convertir el buffer a cadena)
               data = chunk.toString();
+
+              // Arreglar presentación de los datos para mostrar en pantalla
+              while (data.includes("&") || data.includes("_") ||
+                     data.includes("=") || data.includes("+") ||
+                     data.includes("%")) {
+                data = data.replace("&", "<br>");
+                data = data.replace("_", " ");
+                data = data.replace("=", ": ");
+                data = data.replace("+", " ");
+                data = data.replace("%", "@");
+              }
 
               //-- Añadir los datos a la respuesta
               content += data;
 
               //-- Fin del mensaje. Enlace al formulario
               content += `
-                    </p>
-                    <p>Compra realizada correctamente.<p/>
+                    <p><b>Compra realizada correctamente.</b><p/>
                     <a href="/">Volver a la página principal</a>
                   </body>
-                </html>
-                `
+                </html>`
               //-- Mostrar los datos en la consola del servidor
               console.log("Datos recibidos: " + data)
               res.statusCode = 200;

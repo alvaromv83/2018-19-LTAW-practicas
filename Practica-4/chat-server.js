@@ -34,8 +34,7 @@ io.on('connection', function(socket){
   socket.emit('new_message', 'Bienvenido'); //socket.emit es unicast
 
   // Anuncio del nuevo usuario
-//  io.emit('new_message', 'Nuevo usuario conectado'); //io.emit es broadcast
-//  console.log('--> Enviado anuncio del nuevo usuario');
+  io.emit('new_message', 'Nuevo usuario conectado'); //io.emit es broadcast
 
   n_users += 1;
   console.log("Número de usuarios en el chat: " + n_users);
