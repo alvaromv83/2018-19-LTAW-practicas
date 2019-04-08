@@ -246,6 +246,20 @@ http.createServer((req, res) => {
       res.write(content);
       res.end();
 
+  } else if (filepath == "/lib/client.js") {
+    // Analizar ruta y tipo de fichero
+    filetype = filepath.split(".")[1]
+    filepath = "./static" + filepath
+    console.log("Ruta del fichero: " + filepath)
+    console.log("Tipo de fichero: " + filetype + "\n")
+
+    // Leer el fichero solicitado
+    fs.readFile(filepath, function(err, data) {
+      res.writeHead(200, {'Content-Type': "application/javascript"});
+      res.write(data);
+      res.end();
+    });
+
   // Petición de fichero
   } else {
     switch (filepath) {
@@ -282,8 +296,6 @@ http.createServer((req, res) => {
           mime = "audio/mp3"
         } else if (filetype == "mp4") {
           mime = "video/mp4"
-        } else if (filetype == "js") {
-          mime = "application/javascript"
         }
 
         // Generar el mensaje de respuesta
