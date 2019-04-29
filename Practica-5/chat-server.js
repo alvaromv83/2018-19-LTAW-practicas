@@ -8,18 +8,6 @@ var content;
 
 // -------------------------------------------------------------------------- //
 
-//--Servir la pagina principal
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-  console.log("Recurso solicitado: /")
-});
-
-//-- Servir el cliente javascript
-app.get('/chat-client.js', function(req, res){
-  res.sendFile(__dirname + '/chat-client.js');
-  console.log("Recurso solicitado: /chat-client.js")
-});
-
 //-- Lanzar el servidor
 http.listen(PORT, function(){
   console.log("Arrancando servidor en puerto " + PORT + "...\n")
