@@ -1,3 +1,4 @@
+const io = require('socket.io-client');
 function main()
 {
   console.log("Estoy en app.js...")

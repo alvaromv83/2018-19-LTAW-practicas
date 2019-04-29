@@ -1,9 +1,9 @@
+const io = require('socket.io-client');
+const socket = io('http://localhost:8000');
+
 function main()
 {
   console.log("Estoy en app.js...")
-
-  //-- Crear el websocket
-  var socket = io();
 
   //-- Obtener los elementos del interfaz, del DOM
   let button = document.getElementById('button')
