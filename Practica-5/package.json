@@ -6,6 +6,8 @@
     "start": "electron ."
   },
   "dependencies": {
-    "electron": "^5.0.0"
+    "electron": "^5.0.0",
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
   }
 }
