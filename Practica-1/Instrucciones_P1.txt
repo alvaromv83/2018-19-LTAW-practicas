@@ -5,7 +5,7 @@ Requisitos previos:
 ------------------
 Instalar Node.js:
     & sudo apt-get install curl
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+    & curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
     & sudo apt-get install nodejs
 
 Lanzar servidor y probar página:
@@ -14,7 +14,10 @@ Lanzar servidor y probar página:
         $ npm start
         o bien,
         $ node server.js
-    2) Abrir página en el navegador: http://127.0.0.1:8000/
+    2) Abrir página en el navegador:
+        http://127.0.0.1:8000/
+        o bien,
+        http://localhost:8000/
 
 
 Otras funciones:
