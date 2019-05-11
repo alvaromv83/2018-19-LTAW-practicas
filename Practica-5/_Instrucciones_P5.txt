@@ -24,3 +24,6 @@ Probar chat:
           $ node chat-server.js
     2) Abrir app de cliente:
           $ npm start
+
+IMPORTANTE: La versión de Electron tiene que ser la 4.2.0 (comprobar en package.json).
+            ¡¡¡¡ Con la 5.0.1 NO FUNCIONA !!!!!
