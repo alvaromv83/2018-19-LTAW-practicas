@@ -1,6 +1,35 @@
 # Práctica 1
 
-En este repo se colocarán los ficheros de la práctica 1 de LTAW.
+Instalar Node.js:
+sudo apt-get install curl
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install nodejs
 
-Esto es una prueba...
-sldjfdslkjfsdf
+Comprobar versión de Node.js:
+$ node -v
+v10.15.0
+
+Comprobar versión de npm (node package manager):
+$ npm -v
+6.4.1
+
+Utilizar Node.js en modo interactivo:
+$ node
+>
+> .exit    ---> Para salir
+
+Ejecutar fichero:
+$ node hello.js
+
+Ejecutar fichero en modo interactivo:
+$ node
+> .load hello.js
+
+Añadir entradas en package.json:
+  "scripts": {
+    "start": "node hello.js",   --> Para ejecutar desde npm
+    "test": "node -v" ------------> Para comprobar versión de Node.js
+  }
+
+Ejecutar fichero con npm (hay queañadir previamente la entrada en package.json):
+$ npm start
