@@ -7,11 +7,14 @@ Requisitos previos:
           & sudo apt-get install curl
           curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
           & sudo apt-get install nodejs
-
-    2) Instalar Electron (framework en el que se basa esta práctica):
+    2) Instalar Express (framework en el que se basa el servidor):
+          & npm install express
+    3) Instalar socket.io (biblioteca que se usa para la comunicación
+       bidireccional entre cliente y servidor a través de websocket):
+          & npm install socket.io
+    4) Instalar Electron (framework en el que se basa la app del cliente):
           & npm install electron
-
-    3) Instalar socket.io-client (API que se usa para la comunicación
+    5) Instalar socket.io-client (API que se usa para la comunicación
        bidireccional entre cliente y servidor a través de websocket):
           & npm install socket.io
 
