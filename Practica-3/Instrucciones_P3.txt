@@ -1,5 +1,5 @@
 # Instrucciones Práctica 3
---------------------------
+==========================
 
 Lanzar servidor y probar página:
 -------------------------------

@@ -1,3 +1,6 @@
+Enunciado Práctica 2
+--------------------
+
 Crear una tienda usando django (En el laboratorio tenemos django 1.11, para
 python2. Es importante que uséis esta misma versión). Debe incluir las
 siguientes cosas:
