@@ -1,6 +1,3 @@
-const io = require('socket.io-client');
-const socket = io('http://localhost:8000');
-
 function main()
 {
   console.log("Estoy en app.js...")

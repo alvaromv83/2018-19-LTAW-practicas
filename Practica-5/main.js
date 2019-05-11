@@ -1,4 +1,6 @@
 const electron = require('electron')
+const io = require('socket.io-client');
+const socket = io('http://localhost:8000');
 
 console.log("Arrancando electron...")
 
