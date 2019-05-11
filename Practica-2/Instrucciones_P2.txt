@@ -1,6 +1,12 @@
 # Instrucciones Práctica 2
 ==========================
 
+Requisitos previos:
+------------------
+Comprobar que Django está instalado:
+    $ django-admin --version
+    1.11.11
+
 Lanzar app "mi_tienda" y probarla en el navegador:
 -------------------------------------------------
     1) Ir al directorio ./mi_proyectoweb y ejecutar:
@@ -10,10 +16,6 @@ Lanzar app "mi_tienda" y probarla en el navegador:
 
 Empezar de cero:
 ---------------
-
-Comprobar la instalación de Django:
-$ django-admin --version
-1.11.11
 
 Comprobar que desde python tenemos acceso a los módulos de django:
     1) Abrir un terminal de Python:

@@ -1,0 +1,8 @@
+Enunciado Práctica 5
+--------------------
+
+Converir el cliente del chat de la práctica 4 en una aplicación nativa
+ejecutable, con electron. Por un lado se deberá lanzar el servidor, al que se
+podrán conectar clientes web como en la práctica 4. En esta práctica añadimos un
+cliente nuevo: el nativo, que tendrá la misma apariencia que en la práctica 4,
+pero que NO se lanzará desde el navegador.

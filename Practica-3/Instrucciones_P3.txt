@@ -1,6 +1,13 @@
 # Instrucciones Práctica 3
 ==========================
 
+Requisitos previos:
+------------------
+Instalar Node.js:
+    & sudo apt-get install curl
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+    & sudo apt-get install nodejs
+
 Lanzar servidor y probar página:
 -------------------------------
     1) Ir al directorio ./tienda_node_v2 y ejecutar:
@@ -13,36 +20,4 @@ Lanzar servidor y probar página:
 Empezar de cero:
 ---------------
 
-Instalar Node.js:
-sudo apt-get install curl
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install nodejs
-
-Comprobar versión de Node.js:
-$ node -v
-v10.15.0
-
-Comprobar versión de npm (node package manager):
-$ npm -v
-6.4.1
-
-Utilizar Node.js en modo interactivo:
-$ node
->
-> .exit    ---> Para salir
-
-Ejecutar fichero:
-$ node hello.js
-
-Ejecutar fichero en modo interactivo:
-$ node
-> .load hello.js
-
-Añadir entradas en package.json:
-  "scripts": {
-    "start": "node hello.js",   --> Para ejecutar desde npm
-    "test": "node -v" ------------> Para comprobar versión de Node.js
-  }
-
-Ejecutar fichero desde npm (hay que añadir previamente la entrada en package.json):
-$ npm start
+Ver Practica-1/Instrucciones_P1.txt

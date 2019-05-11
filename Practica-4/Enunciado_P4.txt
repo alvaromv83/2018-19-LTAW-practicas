@@ -1,0 +1,19 @@
+Enunciado Práctica 4
+--------------------
+
+Hacer un chat en el que múltiples usuarios puedan hablar entre sí. Primero hay
+que lanzar el servidor (hecho con node) al que se conectarán los usuarios. Cada
+vez que un usuario se conecte el servidor le enviará un mensaje de Bienvenida, y
+anunciará al resto de participantes que se ha conectado alguien nuevo.
+
+La conexión al servidor será a través del navegador. Una vez conectado el
+servidor devuelve la página html y los ficheros javascript y de estilo
+necesarios.
+
+El servidor, además, responderá a los comandos que empiezan por /. Los comandos
+implementados serán:
+
+    /help: Mostrará una lista con todos los comandos soportados
+    /list: Devolverá el número de usuarios conectados
+    /hello: El servidor nos devolverá el saludo
+    /date: Nos devolverá la fecha
