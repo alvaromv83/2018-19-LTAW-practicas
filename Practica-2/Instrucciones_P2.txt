@@ -1,0 +1,44 @@
+# Instrucciones Práctica 2
+==========================
+
+Lanzar aplicación:
+-----------------
+Ir al directorio ./mi_proyectoweb y ejecutar:
+    $ python manage.py runserver
+
+
+Empezar de cero:
+---------------
+
+Comprobar la instalación de Django:
+$ django-admin --version
+1.11.11
+
+Comprobar que desde python tenemos acceso a los módulos de django:
+    1) Abrir un terminal de Python:
+        $ python
+        Python 2.7.15rc1 (default, Nov 12 2018, 14:31:15)
+        [GCC 7.3.0] on linux2
+        Type "help", "copyright", "credits" or "license" for more information.
+    2) Ejecutar:
+        >>> import django
+        >>> django.VERSION
+        (1, 11, 11, u'final', 0)
+        >>>
+
+Proyecto "hola mundo":
+    1) Crear la estructura de directorios y ficheros:
+        $ django-admin startproject mi_tienda
+    2) Lanzar servidor:
+        $ python manage.py runserver
+    3) Abrir página en el navegador: http://127.0.0.1:8000/
+
+Proyecto "hola mundo" mediante APP:
+    1) Crear la estructura de directorios y ficheros:
+        $ django-admin startproject mi_proyectoweb
+    2) Entrar en el directorio mi_proyectoweb, donde se encuentra el fichero
+       manage.py y ejecutar:
+        $ python manage.py startapp mi_app
+    3) Lanzar servidor:
+        $ python manage.py runserver
+    4) Abrir página en el navegador: http://127.0.0.1:8000/

@@ -1,5 +1,5 @@
-# Práctica 1
-------------
+# Instrucciones Práctica 1
+--------------------------
 
 Instalar Node.js:
 sudo apt-get install curl
