@@ -1,0 +1,16 @@
+Crear una tienda usando django (En el laboratorio tenemos django 1.11, para
+python2. Es importante que uséis esta misma versión). Debe incluir las
+siguientes cosas:
+
+    * Almenos 3 productos diferentes
+    * Caja de búsqueda para que el cliente (humano) pueda buscar en el catálogo
+      (base de datos) de la tienda
+    * El sitio debe generar varias vistas: la general, sólo producto-1, sólo
+      producto-2, sólo producto-3, los resultados de las búsquedas, etc...
+    * Se deben utilizar plantillas para generar los contenidos dinámicos
+      concretos
+    * El cliente debe poder rellenar un formulario para relizar un pedido
+      concreto, que se recibe en el servidor y se inserta en la base de datos
+    * Diseña los modelos de datos y la aplicaón de la tienda
+    * Cuida el aspecto usando CSS y HTML5
+    * Como base de datos usar SQLite
