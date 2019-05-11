@@ -1,10 +1,11 @@
 # Instrucciones Práctica 2
 ==========================
 
-Lanzar aplicación:
------------------
-Ir al directorio ./mi_proyectoweb y ejecutar:
-    $ python manage.py runserver
+Lanzar app "mi_tienda" y probarla en el navegador:
+-------------------------------------------------
+    1) Ir al directorio ./mi_proyectoweb y ejecutar:
+        $ python manage.py runserver
+    2) Abrir página en el navegador: http://127.0.0.1:8000/
 
 
 Empezar de cero:

@@ -1,9 +1,9 @@
-# Instrucciones Práctica 1
+# Instrucciones Práctica 3
 --------------------------
 
 Lanzar servidor y probar página:
 -------------------------------
-    1) Ir al directorio ./tienda_node_v1 y ejecutar:
+    1) Ir al directorio ./tienda_node_v2 y ejecutar:
         $ npm start
         o bien,
         $ node server.js
