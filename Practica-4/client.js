@@ -7,7 +7,7 @@ function main() {
   //-- Obtener los elementos de interfaz:
 
   //-- Boton de envio de mensaje
-  var send = document.getElementById('send')
+  var button = document.getElementById('button')
 
   //-- Parrafo para mostrar mensajes recibidos
   var display = document.getElementById('display')
@@ -18,12 +18,12 @@ function main() {
   msg.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
       event.preventDefault();
-      document.getElementById("send").click()
+      document.getElementById("button").click()
     }
   });
 
   //-- Cuando se aprieta el botón de enviar...
-  send.onclick = () => {
+  button.onclick = () => {
 
     //-- Enviar el mensaje, con el evento "new_message"
     socket.emit('new_message', msg.value);

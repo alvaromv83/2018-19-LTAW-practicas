@@ -15,11 +15,18 @@ Requisitos previos:
        bidireccional entre cliente y servidor a través de websocket):
           & npm install socket.io
 
-Probar chat:
-------------
+Probar chat en una máquina:
+--------------------------
     1) Lanzar servidor:
           $ node chat-server.js
     2) Abrir una página en el navegador por cada usuario del chat:
           http://127.0.0.1:8000/
           o bien,
           http://localhost:8000/
+
+Utilizar chat en red:
+---------------------
+    1) Lanzar servidor en una máquina:
+          $ node chat-server.js
+    2) Conectar con el servidor desde un navegador en cada nodo:
+          http://<server_ip>:8000/

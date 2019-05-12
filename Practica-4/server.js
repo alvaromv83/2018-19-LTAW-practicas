@@ -15,9 +15,9 @@ app.get('/', function(req, res){
 });
 
 //-- Servir el cliente javascript
-app.get('/chat-client.js', function(req, res){
-  res.sendFile(__dirname + '/chat-client.js');
-  console.log("Recurso solicitado: /chat-client.js")
+app.get('/client.js', function(req, res){
+  res.sendFile(__dirname + '/client.js');
+  console.log("Recurso solicitado: /client.js")
 });
 
 //-- Lanzar el servidor
