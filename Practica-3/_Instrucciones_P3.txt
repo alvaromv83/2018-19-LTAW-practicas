@@ -8,9 +8,9 @@ Instalar Node.js (si no se ha instalado previamente):
     & curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
     & sudo apt-get install nodejs
 
-Lanzar servidor y probar página:
--------------------------------
-    1) Ir al directorio ./tienda_node_v2 y ejecutar:
+Probar tienda en una máquina:
+-----------------------------
+    1) Lanzar servidor:
         $ npm start
         o bien,
         $ node server.js
@@ -18,6 +18,13 @@ Lanzar servidor y probar página:
         http://127.0.0.1:8000/
         o bien,
         http://localhost:8000/
+
+Probar tienda en red:
+---------------------
+    1) Lanzar servidor en una máquina:
+          $ node chat-server.js
+    2) Conectar con el servidor desde un navegador en cada nodo:
+          http://<server_ip>:8000/
 
 
 Empezar de cero:

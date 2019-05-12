@@ -22,7 +22,7 @@ Probar chat en una máquina:
 --------------------------
     1) Lanzar servidor:
           $ node chat-server.js
-    2) Abrir app desde un terminal nuevo por cada cliente:
+    2) Abrir app desde un terminal nuevo por cada usuario del chat:
           $ npm start
 
 NOTA: Esta versión de la práctica sólo permite probar la app en una máquina.

@@ -1,12 +1,12 @@
 {
   "name": "server",
-  "description": "Mi servidor hola mundo",
+  "description": "Chat",
   "keywords": [
     "ltaw",
     "test"
   ],
-  "version": "0.0.1",
-  "author": "Álvaro Moles Vinader",
+  "version": "0.1.0",
+  "author": "Alvaro Moles Vinader",
   "main": "server.js",
   "devDependencies": {},
   "license": "GPL-3.0",

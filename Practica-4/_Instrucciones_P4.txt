@@ -18,8 +18,10 @@ Requisitos previos:
 Probar chat en una máquina:
 --------------------------
     1) Lanzar servidor:
-          $ node chat-server.js
-    2) Abrir una página en el navegador por cada usuario del chat:
+        $ npm start
+        o bien,
+        $ node server.js
+    2) Conectar con el servidor desde un navegador en cada nodo:
           http://127.0.0.1:8000/
           o bien,
           http://localhost:8000/
