@@ -3,7 +3,7 @@
 
 Requisitos previos:
 ------------------
-Instalar Node.js:
+Instalar Node.js (si no se ha instalado previamente):
     & sudo apt-get install curl
     & curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
     & sudo apt-get install nodejs
@@ -19,9 +19,8 @@ Lanzar servidor y probar página:
         o bien,
         http://localhost:8000/
 
-
-Otras funciones:
----------------
+Otros:
+------
 Comprobar versión de Node.js:
     $ node -v
     v10.15.0

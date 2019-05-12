@@ -17,8 +17,8 @@ Lanzar app "mi_tienda" y probarla en el navegador:
         http://localhost:8000/
 
 
-Empezar de cero:
----------------
+Empezar proyecto de cero:
+------------------------
 
 Comprobar que desde python tenemos acceso a los módulos de django:
     1) Abrir un terminal de Python:
