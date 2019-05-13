@@ -10,6 +10,12 @@ from mi_tienda.models import Product
 def home_view (request):
     return render(request, "index.html", {})
 
+def search (request):
+    return render(request, "index.html", {})
+
+def form (request):
+    return render(request, "form.html", {})
+
 def pianos_view (request):
     return render(request, "pianos.html", {})
 

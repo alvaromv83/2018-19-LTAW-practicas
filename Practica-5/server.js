@@ -8,18 +8,6 @@ var content;
 
 // -------------------------------------------------------------------------- //
 
-//--Servir la pagina principal
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-  console.log("Recurso solicitado: /")
-});
-
-//-- Servir el cliente javascript
-app.get('/chat-client.js', function(req, res){
-  res.sendFile(__dirname + '/chat-client.js');
-  console.log("Recurso solicitado: /chat-client.js")
-});
-
 //-- Lanzar el servidor
 http.listen(PORT, function(){
   console.log("Arrancando servidor en puerto " + PORT + "...\n")
@@ -38,7 +26,7 @@ io.on('connection', function(socket){
   console.log("Número de usuarios en el chat: " + n_users);
 
   // Enviar mensaje de bienvenida al nuevo usuario
-  socket.emit('new_message', '<i>Hola ' + socket.id + ". Bienvenido/a al chat.</i>"); //socket.emit es unicast
+  socket.emit('new_message', '<i>Hola ' + socket.id + ". Bienvenid@ al chat.</i>"); //socket.emit es unicast
 
   // Anuncio del nuevo usuario
   io.emit('new_message', "<i>" + socket.id + ' se ha conectado al chat</i>'); //io.emit es broadcast
