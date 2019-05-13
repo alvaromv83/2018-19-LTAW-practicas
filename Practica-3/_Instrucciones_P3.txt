@@ -27,7 +27,7 @@ Probar tienda en red:
           http://<server_ip>:8000/
 
 
-Empezar de cero:
----------------
+Otros:
+------
 
 Ver Practica-1/Instrucciones_P1.txt

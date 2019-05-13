@@ -7,14 +7,21 @@ Comprobar que Django está instalado:
     $ django-admin --version
     1.11.11
 
-Lanzar app "mi_tienda" y probarla en el navegador:
--------------------------------------------------
-    1) Ir al directorio ./mi_proyectoweb y ejecutar:
+Probar tienda en una máquina:
+-----------------------------
+    1) Lanzar el servidor; ir al directorio ./mi_proyectoweb y ejecutar:
         $ python manage.py runserver
     2) Abrir página en el navegador:
         http://127.0.0.1:8000/
         o bien,
         http://localhost:8000/
+
+Probar tienda en red:
+---------------------
+    1) Lanzar servidor en una máquina; ir al directorio ./mi_proyectoweb y ejecutar:
+          $ node chat-server.js
+    2) Conectar con el servidor desde un navegador en cada nodo:
+          http://<server_ip>:8000/
 
 
 Empezar proyecto de cero:

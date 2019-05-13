@@ -16,7 +16,7 @@ Requisitos previos:
           & npm install electron
     5) Instalar socket.io-client (API que se usa para la comunicación
        bidireccional entre cliente y servidor a través de websocket):
-          & npm install socket.io
+          & npm install socket.io-client
 
 Probar chat en una máquina:
 --------------------------
